@@ -1,0 +1,10 @@
+{
+  "name": "bee-js-tool",
+  "version": "0.1.0",
+  "description": "bee-js-tool",
+  "dependencies": {
+    "@ethersphere/bee-js": "0.8.1",
+    "node-fetch": "^2.6.1"
+  },
+  "scripts": {}
+}
