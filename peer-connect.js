@@ -27,7 +27,7 @@ const connectPeer = async (port, peer) => {
 	let addr = JSON.parse(fs.readFileSync(options.peers_file));
   for (let i = options.start; i <= options.end; i++) {
     let port = options.port_start + i * 3;
-		addr.peers.forEach(peer => {
+		addr.peers.forEach(async (peer) => {
 			await connectPeer(port, peer);
 		});
   }
