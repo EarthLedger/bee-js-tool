@@ -6,11 +6,11 @@ const fs = require("fs");
 const options = commandLineArgs([
   { name: 'start', alias: 's', type: Number },
   { name: 'end', alias: 'e', type: Number },
-  { name: 'ip', alias: 'ip', type: String },
-  { name: 'port_start', alias: 'ps', type: Number, defaultOption: 1635 },
+  { name: 'ip', alias: 'i', type: String },
+  { name: 'port_start', alias: 'p', type: Number, defaultValue: 1635 },
 ]);
 
-//console.log("xxx:", options);
+console.log("options:", options);
 const queryPeerAddress = async (port) => {
   try {
     let result = await request(`http://localhost:${port}/addresses`);
@@ -25,7 +25,6 @@ const queryPeerAddress = async (port) => {
     return "";
   }
 };
-
 
 (async () => {
   let result = {
