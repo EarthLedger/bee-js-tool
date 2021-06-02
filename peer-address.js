@@ -37,7 +37,7 @@ const queryPeerAddress = async (port) => {
   }
 
   // write to file
-  fs.writeFileSync(`./${options.ip}-${options.start}-${options.end}.json`, JSON.stringify(result));
+  fs.writeFileSync(`./output/${options.ip}-${options.start}-${options.end}.json`, JSON.stringify(result));
 })();
 
 
