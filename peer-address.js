@@ -17,9 +17,13 @@ const queryPeerAddress = async (port) => {
     let res = await result.json();
     console.log(res);
     // parser out address
-    let peerAddr = res.underlay[0];
+    for (var idx in res.underlay) {
+	let peerAddr = res.underlay[idx];
+	if (peerAddr.startsWith("/ip4/")) {
+	    return peerAddr.replace(/\/(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\//, `/${options.ip}/`);
+	}
+    }
     // "/ip4/172.24.33.198/tcp/1634/p2p/16Uiu2HAmHxMLCr8VSATMyMif8J6iJZC5VJ8356DK8YDjajUrdYAc",
-    return peerAddr.replace(/\/(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})\//, `/${options.ip}/`);
   } catch (e) {
     console.error("queryPeerAddress err:", e);
     return "";
